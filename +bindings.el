@@ -10,5 +10,9 @@
      :desc "(Un)Comment line" :n "c" #'+cole/comment-or-uncomment-line)
    ;; Window keybindings
    (:prefix "w"
-    :desc "Close current window" :n "d" #'+workspace/close-window-or-workspace)))
+    :desc "Close current window" :n "d" #'+workspace/close-window-or-workspace
+    :desc "Maximize window" :n "m" #'delete-other-windows)
+   ;; Workspace keybindings
+   (:prefix "<tab>"
+     :desc "Add buffer to workspace" :n "a" #'persp-add-buffer)))
 
