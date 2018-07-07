@@ -2,3 +2,5 @@
 
 (load! "+bindings")
 
+(load! "autoload")
+
