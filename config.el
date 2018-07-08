@@ -2,5 +2,7 @@
 
 (load! "+bindings")
 
-(load! "autoload")
+(load! "notmuch")
 
+(setq user-full-name "Cole Lyman"
+      user-mail-address "cole@colelyman.com")
