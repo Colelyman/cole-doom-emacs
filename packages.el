@@ -10,3 +10,6 @@
 ;; Org-ref
 (package! org-ref)
 (package! org-pdfview)
+
+;; Hugo blogging through ox-hugo
+(package! ox-hugo)

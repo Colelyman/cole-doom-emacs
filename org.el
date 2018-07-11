@@ -3,6 +3,7 @@
 ;; General org settings
 (after! org
   (setq org-todo-keywords '((sequence "TODO" "WAIT" "DONE"))
+        org-log-done 'time
         org-directory (expand-file-name "~/org")
         org-agenda-files (list "~/org/master.org" "~/org/2018/fall.org")
         org-capture-templates
@@ -11,12 +12,15 @@
           ("t" "Todo" entry (file+olp+datetree "~/org/master.org")
            "* TODO %?\nDEADLINE: %^t")
           ("s" "School todo" entry (file "~/org/2018/spring.org")
-           "* TODO %? %^g\nDEADLINE: %^t")))
+           "* TODO %? %^g\nDEADLINE: %^t")
+          ("h" "Hugo post" entry (file+olp "~/code/colelyman-hugo/site/content-org/posts.org" "Blog Ideas")
+           (function org-hugo-new-subtree-post-capture-template))))
   (advice-add 'org-deadline :after 'org-save-all-org-buffers)
   (advice-add 'org-refile :after 'org-save-all-org-buffers))
 
 ;; org-ref settings
 (def-package! org-ref
+  :defer t
   :init
   (setq org-ref-completion-library 'org-ref-ivy-cite)
   :config
@@ -32,3 +36,8 @@
                                                (file-name-as-directory "index.bib"))
         bibtex-completion-library-path org-ref-pdf-directory
         bibtex-completion-notes-path org-ref-bibliography-notes))
+
+;; ox-hugo settings
+(def-package! ox-hugo
+  :defer t
+  :after ox)
