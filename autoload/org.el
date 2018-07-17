@@ -15,3 +15,15 @@ the function found: https://ox-hugo.scripter.co/doc/org-capture-setup"
                  ":END:"
                  "%?\n")
                "\n")))
+
+;;;###autoload
+(defun +cole/org-capture--remove-auto-org-to-hugo-export-maybe ()
+  "Function for `org-capture-before-finalize-hook'.
+Disable `org-hugo-export-wim-to-md-after-save'."
+  (setq org-hugo-allow-export-after-save nil))
+
+;;;###autoload
+(defun +cole/org-capture--add-auto-org-to-hugo-export-maybe ()
+  "Function for `org-capture-after-finalize-hook'.
+Enable `org-hugo-export-wim-to-md-after-save'."
+  (setq org-hugo-allow-export-after-save t))
