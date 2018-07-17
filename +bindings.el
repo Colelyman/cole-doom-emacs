@@ -2,7 +2,9 @@
 
 (map!
  ;; Global keybindings, available in all modes
- "M-s" 'save-buffer
+ "M-s" #'save-buffer
+ ;; Normal mode keybindings
+ :nvm "Q" #'+cole/close-popup
  ;; Keybindings available in the leader
  (:leader
    ;; Code keybindings
