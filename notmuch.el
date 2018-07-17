@@ -2,6 +2,7 @@
 
 (load! "gnus-alias")
 (def-package! gnus-alias
+  :defer t
   :config
   (setq gnus-alias-identity-alist '(("zoho"
                                      nil
@@ -21,6 +22,7 @@
   (gnus-alias-init))
 
 (def-package! notmuch
+  :defer t
   :commands (notmuch
              notmuch-tree
              notmuch-tree-mode
@@ -87,7 +89,8 @@
             :nmv "r"     #'notmuch-show-reply
             :nmv "<tab>" #'notmuch-show-toggle-visibility-headers
             :nmv "R"     #'notmuch-show-reply-sender
-            :nmv "p"   #'notmuch-show-previous-thread-show)
+            :nmv "u"     #'+cole/notmuch-show-unsubscribe
+            :nmv "p"     #'notmuch-show-previous-thread-show)
           (:map notmuch-hello-mode-map
             :nmv "o"   #'ace-link-notmuch-hello
             :nmv "t"   #'notmuch-tree
