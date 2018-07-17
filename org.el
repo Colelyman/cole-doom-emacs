@@ -40,4 +40,7 @@
 ;; ox-hugo settings
 (def-package! ox-hugo
   :defer t
-  :after ox)
+  :after ox
+  :config
+  (add-hook! org-capture-before-finalize #'+cole/org-capture--remove-auto-org-to-hugo-export-maybe)
+  (add-hook! org-capture-after-finalize #'+cole/org-capture--add-auto-org-to-hugo-export-maybe))
