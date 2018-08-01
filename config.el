@@ -8,3 +8,8 @@
 
 (setq user-full-name "Cole Lyman"
       user-mail-address "cole@colelyman.com")
+
+(defvar killed-file-list nil
+  "List of recently killed files.")
+
+(add-hook! 'kill-buffer-hook 'add-file-to-killed-file-list)

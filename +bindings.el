@@ -3,6 +3,7 @@
 (map!
  ;; Global keybindings, available in all modes
  "M-s" #'save-buffer
+ "<backtab>" #'sp-up-sexp
  ;; Normal mode keybindings
  :nvm "Q" #'+cole/close-popup
  ;; Keybindings available in the leader
@@ -16,5 +17,8 @@
     :desc "Maximize window" :n "m" #'delete-other-windows)
    ;; Workspace keybindings
    (:prefix "<tab>"
-     :desc "Add buffer to workspace" :n "a" #'persp-add-buffer)))
+     :desc "Add buffer to workspace" :n "a" #'persp-add-buffer)
+   ;; Buffer keybindings
+   (:prefix "b"
+     :desc "Reopen killed file" :n "K" #'+cole/reopen-killed-file)))
 
