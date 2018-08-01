@@ -47,6 +47,7 @@
         sendmail-program "/usr/local/bin/msmtp"
         message-sendmail-extra-arguments '("--read-envelope-from")
         message-sendmail-f-is-evil t
+        message-kill-buffer-on-exit t
         notmuch-show-all-multipart/alternative-parts t
         mail-user-agent 'message-user-agent)
   (set-evil-initial-state! 'notmuch-hello-mode 'normal)

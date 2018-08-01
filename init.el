@@ -78,7 +78,7 @@
        emacs-lisp        ; drown in parentheses
       ;ess               ; emacs speaks statistics
        go                ; the hipster dialect
-      ;(haskell +intero) ; a language that's lazier than I am
+       (haskell +intero) ; a language that's lazier than I am
       ;hy                ; readability of scheme w/ speed of python
       ;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        latex             ; writing papers in Emacs has never been so fun
