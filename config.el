@@ -6,6 +6,16 @@
 
 (load! "org")
 
+(load! "code")
+
+(load! "term")
+
+(load! "tramp")
+
+(load! "lint-prose")
+
+(load! "pdf")
+
 (setq user-full-name "Cole Lyman"
       user-mail-address "cole@colelyman.com")
 
