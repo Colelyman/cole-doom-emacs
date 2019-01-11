@@ -41,6 +41,7 @@
                                         :query "tag:unread and not tag:spam and not tag:deleted")
                                  (:name "gmail" :key "g"
                                         :query "to:coleandrewlyman@gmail.com and not tag:spam and not tag:deleted"))
+        notmuch-multipart/alternative-discouraged '("text/html" "text/plain")
         mail-specify-envelope-from 'header
         mail-sendmail-envelope-from 'header
         message-send-mail-function 'message-send-mail-with-sendmail
@@ -48,16 +49,16 @@
         message-sendmail-extra-arguments '("--read-envelope-from")
         message-sendmail-f-is-evil t
         message-kill-buffer-on-exit t
-        notmuch-show-all-multipart/alternative-parts t
+        notmuch-show-all-multipart/alternative-parts nil
         mail-user-agent 'message-user-agent)
   (set-evil-initial-state! 'notmuch-hello-mode 'normal)
   (set-evil-initial-state! 'notmuch-show-mode 'normal)
   (set-evil-initial-state! 'notmuch-search-mode 'normal)
   (set-evil-initial-state! 'notmuch-tree-mode 'normal)
   (set-evil-initial-state! 'notmuch-message-mode 'normal)
-  (add-hook 'notmuch-tree-mode-hook #'+mail/buffer-face-mode-notmuch)
-  (add-hook 'notmuch-search-hook #'+mail/buffer-face-mode-notmuch)
-  (add-hook 'notmuch-message-mode-hook 'variable-pitch-mode)
+  ;; (add-hook 'notmuch-tree-mode-hook #'+mail/buffer-face-mode-notmuch)
+  ;; (add-hook 'notmuch-search-hook #'+mail/buffer-face-mode-notmuch)
+  ;; (add-hook 'notmuch-message-mode-hook 'variable-pitch-mode)
   ;; (add-hook 'notmuch-message-mode-hook #'+mail/buffer-face-mode-notmuch)
   (add-hook 'notmuch-message-mode-hook (lambda () (set (make-local-variable 'company-backends) '(notmuch-company (company-ispell :with company-yasnippet)))))
   (add-hook 'notmuch-tree-mode-hook (lambda () (setq-local line-spacing nil)))
@@ -88,6 +89,7 @@
             :nmv "s-n"   #'notmuch-mua-new-mail
             :nmv "n"     #'notmuch-show-next-thread-show
             :nmv "r"     #'notmuch-show-reply
+            :nmv "f"     #'notmuch-show-forward-message
             :nmv "<tab>" #'notmuch-show-toggle-visibility-headers
             :nmv "R"     #'notmuch-show-reply-sender
             :nmv "u"     #'+cole/notmuch-show-unsubscribe
@@ -147,14 +149,17 @@
             :desc "Attach file" :n "f" #'mml-attach-file))))
 
 (def-package! counsel-notmuch
+  :defer t
   :commands counsel-notmuch
   :after notmuch)
 
 (load! "org-notmuch")
 (def-package! org-notmuch
+  :defer t
   :after (org notmuch))
 
 (def-package! org-mime
+  :defer t
   :after (org notmuch)
   :config
   (setq org-mime-library 'mml
