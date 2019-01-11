@@ -36,7 +36,8 @@
            (function org-hugo-new-subtree-post-capture-template))))
   (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
   (advice-add 'org-deadline :after 'org-save-all-org-buffers)
-  (advice-add 'org-refile :after 'org-save-all-org-buffers))
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+  (advice-remove #'org-export-output-file-name #'+org*export-output-file-name))
 
 ;; org-ref settings
 (def-package! org-ref
