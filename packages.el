@@ -2,6 +2,7 @@
 ;;; private/cole/packages.el
 
 (package! ob-async)
+(package! interleave)
 
 ;; Email
 (package! counsel-notmuch)
@@ -13,3 +14,5 @@
 
 ;; Hugo blogging through ox-hugo
 (package! ox-hugo)
+
+(package! flycheck-vale)
