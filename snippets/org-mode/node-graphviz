@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: node-graphviz
+# key: node
+# --
+$1$2 [texlbl="\$$1_{$2}\$"];$0

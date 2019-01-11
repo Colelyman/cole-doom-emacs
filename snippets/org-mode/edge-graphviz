@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: edge-graphviz
+# key: edge
+# --
+$1$2 -> $3$4 [label=" " texlbl="\$$5_{$6$7}\$"];$0
