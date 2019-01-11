@@ -46,6 +46,7 @@
 
        :editor
       ;parinfer          ; turn lisp into python, sort of
+       multiple-cursors
        rotate-text       ; cycle region at point between text candidates
 
        :emacs
@@ -65,7 +66,7 @@
        make              ; run make tasks from Emacs
        magit             ;
       ;password-store    ; password manager for nerds
-       pdf               ; pdf enhancements
+      ;pdf               ; pdf enhancements
       ;prodigy           ; FIXME managing external services & code builders
       ;rgb               ; creating color strings
        upload            ; map local to remote projects via ssh/ftp
@@ -74,11 +75,12 @@
        :lang
        (cc +irony +rtags); C/C++/Obj-C madness
       ;clojure           ; java with a lisp
+       common-lisp
        data              ; config/data formats
        emacs-lisp        ; drown in parentheses
       ;ess               ; emacs speaks statistics
        go                ; the hipster dialect
-       (haskell +intero) ; a language that's lazier than I am
+      ;(haskell +intero) ; a language that's lazier than I am
       ;hy                ; readability of scheme w/ speed of python
       ;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        latex             ; writing papers in Emacs has never been so fun
@@ -95,7 +97,7 @@
       ;plantuml          ; diagrams for confusing people more
        python            ; beautiful is better than ugly
       ;rest              ; Emacs as a REST client
-      ;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
       ;scala             ; java, but good
        sh                ; she sells (ba|z)sh shells on the C xor
       ;solidity          ; do you need a blockchain? No.
